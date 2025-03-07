@@ -6,7 +6,18 @@ namespace WDEmployee
     {
         static async Task Main(string[] args)
         {
+            GetFamilyStuff();
 
+            Console.ReadKey();
+        }
+
+        private static void GetFamilyStuff()
+        {
+            EmployeeGetter.DeserializeFamilyXml(EmployeeGetter.GetFamilyXml());
+        }
+
+        private static async Task DoWdXmlStuff()
+        {
             // Test to see if you get secrets
             Console.WriteLine(SecretsManager.GetSecret("test"));
 
@@ -18,7 +29,7 @@ namespace WDEmployee
 
             WorkdayEmployeeRepository _wdRepository = new();            // spin up a new repository
 
-            var _employeeList = await _wdRepository.GetWorkdayEmployeesFromApiAsync(_creds,_peopleUrl);  // Get the goods.
+            var _employeeList = await _wdRepository.GetWorkdayEmployeesFromApiAsync(_creds, _peopleUrl);  // Get the goods.
 
 
             // Validate. Loop through each employee
@@ -26,10 +37,6 @@ namespace WDEmployee
             {
                 Console.WriteLine(item.EmployeeName);
             }
-
-
-            Console.ReadKey();
-
         }
     }
 }
