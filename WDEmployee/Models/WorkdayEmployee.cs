@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Serialization;
 
@@ -57,11 +58,59 @@ namespace WDEmployee.Models
 
 
 
-
+        // new property
+        [XmlElement("Licenses", Namespace = "urn:com.workday.report/RandomDrugTestSelectionPool")]
+        public List<Licenses> Licenses { get; set; }
 
 
 
     }
+
+
+
+
+
+
+    // NEW CLASS
+    public class Licenses
+    {
+        [XmlElement("LicenseType", Namespace = "urn:com.workday.report/RandomDrugTestSelectionPool")]
+        public LicenseType LicenseType { get; set; }
+
+        [XmlElement("IssuedDate", Namespace = "urn:com.workday.report/RandomDrugTestSelectionPool")]
+        public DateTime IssuedDate { get; set; }
+
+        [XmlElement("ExpirationDate", Namespace = "urn:com.workday.report/RandomDrugTestSelectionPool")]
+        public DateTime ExpirationDate { get; set; }
+    }
+
+
+    // NEW CLASS
+    public class LicenseType
+    {
+        [XmlAttribute("Descriptor", Namespace = "urn:com.workday.report/RandomDrugTestSelectionPool")]
+        public string Descriptor { get; set; }
+
+        //[XmlElement("ID", Namespace = "urn:com.workday.report/RandomDrugTestSelectionPool")]
+        //public List<ID> IDs { get; set; }
+    }
+
+
+
+
+    //// NEW CLASS
+    //public class ID
+    //{
+    //    [XmlAttribute("type", Namespace = "urn:com.workday.report/RandomDrugTestSelectionPool")]
+    //    public string Type { get; set; }
+
+    //    [XmlText]
+    //    public string Value { get; set; }
+    //}
+
+
+
+
 }
 
 

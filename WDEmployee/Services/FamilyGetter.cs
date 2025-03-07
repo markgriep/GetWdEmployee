@@ -6,7 +6,7 @@ using WDEmployee.Models;
 
 namespace WDEmployee.Services
 {
-    public static class EmployeeGetter
+    public static class FamilyGetter
     {
 
 

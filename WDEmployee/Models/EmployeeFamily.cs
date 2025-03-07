@@ -18,6 +18,8 @@ namespace WDEmployee.Models
         public List<ReportEntry> ReportEntries { get; set; }
     }
 
+
+
     public class ReportEntry
     {
         [XmlElement("EmployeeName")]
@@ -33,6 +35,8 @@ namespace WDEmployee.Models
         public List<Family> Family { get; set; }
     }
 
+
+
     public class Family
     {
         [XmlElement("Dependent")]
@@ -41,6 +45,8 @@ namespace WDEmployee.Models
         [XmlElement("BirthDate")]
         public DateTime BirthDate { get; set; }
     }
+
+
 
     public class Dependent
     {
