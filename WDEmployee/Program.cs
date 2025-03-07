@@ -4,12 +4,22 @@ namespace WDEmployee
 {
     internal class Program
     {
+
+
         static async Task Main(string[] args)
         {
-            GetFamilyStuff();
+            //GetFamilyStuff();
+
+            DoWdXmlStuff().Wait();
+
 
             Console.ReadKey();
         }
+
+
+
+
+
 
         private static void GetFamilyStuff()
         {
