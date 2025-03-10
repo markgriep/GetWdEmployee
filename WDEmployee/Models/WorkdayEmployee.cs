@@ -88,7 +88,8 @@ namespace WDEmployee.Models
     // NEW CLASS
     public class LicenseType
     {
-        [XmlAttribute("Descriptor", Namespace = "urn:com.workday.report/RandomDrugTestSelectionPool")]
+        [XmlAttribute("Descriptor", Namespace = "urn:com.workday.report/RandomDrugTestSelectionPool",
+            Form = System.Xml.Schema.XmlSchemaForm.Qualified)]
         public string Descriptor { get; set; }
 
         //[XmlElement("ID", Namespace = "urn:com.workday.report/RandomDrugTestSelectionPool")]
