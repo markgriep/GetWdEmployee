@@ -47,14 +47,25 @@ namespace WDEmployee
             // Validate. Loop through each employee
             foreach (var item in thelist)
             {
+                Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+
                 Console.WriteLine(item.EmployeeName);
 
-                foreach (var xx in item.Licenses)
-                {
-                    Console.WriteLine($"     {xx.LicenseType.Descriptor}");
-                    Console.WriteLine($"     {xx.IssuedDate}");
-                    Console.WriteLine($"     {xx.ExpirationDate}");
-                }
+
+                Console.WriteLine(item?.Licenses?.FirstOrDefault(x => x?.LicenseType?.Descriptor.StartsWith("CDL") == true)?.LicenseType?.Descriptor ?? string.Empty);
+                Console.WriteLine(item?.Licenses?.FirstOrDefault(x => x?.LicenseType?.Descriptor.StartsWith("CDL") == true)?.IssuedDate.ToShortDateString() ?? string.Empty);
+                Console.WriteLine(item?.Licenses?.FirstOrDefault(x => x?.LicenseType?.Descriptor.StartsWith("CDL") == true)?.ExpirationDate.ToShortDateString() ?? string.Empty);
+
+
+
+
+        //        // Loop through each one.
+        //        foreach (var xx in item.Licenses)
+        //        {
+        //            Console.WriteLine($"         License Type  {xx.LicenseType.Descriptor}");
+        //            Console.WriteLine($"           Issue Date  {xx.IssuedDate.ToShortDateString()}");
+        //            Console.WriteLine($"      Expiration Date  {xx.ExpirationDate.ToShortDateString()}");
+        //        }
             }
         }
 
